@@ -4,7 +4,7 @@ Bioinformatics pipeline for variant calling from quinoa resequencing data.
 
 ## Overview
 
-This repository contains the scripts used for processing raw sequencing reads through variant calling, generating the SNP dataset used in [First application of genomic prediction in quinoa using a statistical and a machine learning approach Citation/Link].
+This repository contains the scripts used for processing raw sequencing reads through variant calling, generating the SNP dataset used in "First application of genomic prediction in quinoa using a statistical and a machine learning approach".
 
 ## Pipeline Components
 
@@ -35,7 +35,7 @@ bash runme.sh
 ## Citation
 
 If you use this pipeline, please cite:
-[First application of genomic prediction in quinoa using a statistical and a machine learning approach citation]
+"First application of genomic prediction in quinoa using a statistical and a machine learning approach"
 
 ## Contact
 
