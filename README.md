@@ -8,14 +8,14 @@ This repository contains the scripts used for processing raw sequencing reads th
 
 ## Pipeline Components
 
-- **pre-processing.sh** - Quality control and read trimming
-- **merge_all_using_GATK.sh** - Merging VCF files using GATK
-- **merge_all_using_GATK_allsites.sh** - Merging all sites (variant and non-variant)
-- **gather_chro_vcf.sh** - Gathering chromosome-level VCF files
-- **mergeme.sh** - Helper script for merging operations
-- **mergeme_allsites.sh** - Helper script for merging all sites
-- **downstream_analysis_generic_v2.0_ALL_allsites.sh** - Downstream variant analysis
-- **runme.sh** - Main pipeline execution script
+- `pre-processing.sh` - Quality control and read trimming
+- `merge_all_using_GATK.sh` - Merging VCF files using GATK
+- `merge_all_using_GATK_allsites.sh` - Merging all sites (variant and non-variant)
+- `gather_chro_vcf.sh` - Gathering chromosome-level VCF files
+- `mergeme.sh` - Helper script for merging operations
+- `mergeme_allsites.sh` - Helper script for merging all sites
+- `downstream_analysis_generic_v2.0_ALL_allsites.sh` - Downstream variant analysis
+- `runme.sh` - Main pipeline execution script
 
 ## Requirements
 
@@ -31,12 +31,29 @@ This repository contains the scripts used for processing raw sequencing reads th
 # Basic usage example
 bash runme.sh
 ```
+## Pipeline Parameters
+### Pre-processing Steps
+1. Read trimming (Trimmomatic): LEADING:20 TRAILING:20 SLIDINGWINDOW:5:20 MINLEN:50
+2. Alignment (BWA-MEM): mapping quality threshold -q 30
+3. Mark duplicates (Picard)
+4. Add/replace read groups (Picard)
+5. Index BAM files (SAMtools)
+6. Variant calling (GATK HaplotypeCaller): default parameters
+7. Compress g.VCF files (bgzip)
+8. Index g.VCF files (Tabix)
+### Joint Genotyping & Filtering
+- SNP filtering: QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0 || SOR > 3.0
+- Cluster filtering: --cluster-size 3 --cluster-window-size 10
+- INDEL filtering: QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0 || SOR > 10.0
 
 ## Citation
 
 If you use this pipeline, please cite:
 [Abrouk et al., 2020](https://doi.org/10.1038/s41467-020-18329-4), https://github.com/IBEXCluster/Wheat-SNPCaller
 
+**For application to quinoa please cite**: 
+
+"First application of genomic prediction in quinoa using a statistical and a machine learning approach"
 
 
 
