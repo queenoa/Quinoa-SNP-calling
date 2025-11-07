@@ -1,6 +1,6 @@
-# Quinoa SNP Calling Pipeline
+# Quinoa SNP Calling Scripts
 
-Bioinformatics pipeline for variant calling from quinoa resequencing data.
+Bioinformatics pipeline used for variant calling for quinoa resequencing data, based on the published pipeline by [Abrouk et al., 2020](https://doi.org/10.1038/s41467-020-18329-4), see also https://github.com/IBEXCluster/Wheat-SNPCaller.
 
 ## Overview
 
@@ -35,11 +35,8 @@ bash runme.sh
 ## Citation
 
 If you use this pipeline, please cite:
-"First application of genomic prediction in quinoa using a statistical and a machine learning approach"
+[Abrouk et al., 2020](https://doi.org/10.1038/s41467-020-18329-4), https://github.com/IBEXCluster/Wheat-SNPCaller
 
-## Contact
 
-clara.stanschewski@kaust.edu.sa
 
-## License
 
